@@ -5,36 +5,12 @@ import { BrowserRouter as Router, Route, Link, Switch, NavLink } from "react-rou
 
 // Application imports 
 // Modules
+import Header from '../components/Header';
 import ExpenseHome from '../components/ExpenseHome';
-
-
-const Edit = () => (
-    <div>
-        Edit
-    </div>
-);
-
-const Help = () => (
-    <div>
-        Help 
-    </div>
-);
-
-const Error = () => (
-    <div>
-        404! - <Link to="/">Home</Link>
-    </div>
-);
-
-const Header = () => (
-    <div>
-        <h1>Expensify</h1>
-        <NavLink exact activeClassName="is-active" to="/">Home</NavLink>
-        <NavLink activeClassName="is-active" to="/create">Add</NavLink>
-        <NavLink activeClassName="is-active" to="/edit">Edit</NavLink>
-        <NavLink activeClassName="is-active" to="/help">Help</NavLink>
-    </div>
-);
+import ExpenseAdd from '../components/ExpenseAdd';
+import ExpenseEdit from '../components/ExpenseEdit';
+import ExpenseHelp from '../components/ExpenseHelp';
+import NotFound from '../components/NotFound';
 
 const ExpsenifyRouter = () => (
     <Router>
@@ -42,9 +18,10 @@ const ExpsenifyRouter = () => (
             <Header />
             <Switch>
                 <Route exact path="/" component={ExpenseHome} />
-                <Route path="/edit" component={Edit} />
-                <Route path="/help" component={Help} />
-                <Route component={Error} />
+                <Route path="/add" component={ExpenseAdd} />
+                <Route path="/edit/:id" component={ExpenseEdit}/>
+                <Route path="/help" component={ExpenseHelp} />
+                <Route component={NotFound} />
             </Switch>
         </div>
     </Router>
