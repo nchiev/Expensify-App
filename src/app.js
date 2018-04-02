@@ -1,7 +1,6 @@
 // Imports from modules
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link, Switch, NavLink } from "react-router-dom";
 
 // Application imports 
 // Css
@@ -10,5 +9,10 @@ import './styles/styles.scss';
 
 // Modules
 import ExpsenifyRouter from './routers/AppRouter';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
+console.log(store.getState());
+
 
 ReactDOM.render(<ExpsenifyRouter />, document.getElementById('app'));
