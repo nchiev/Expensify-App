@@ -1,4 +1,4 @@
-export default getVisibleExpenses = (expenses, { text = '', sortBy, startDate, endDate } = {}) => {
+export default (expenses, { text = '', sortBy, startDate, endDate } = {}) => {
     // Filtering section
     return expenses.filter((expense) => {
         const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
