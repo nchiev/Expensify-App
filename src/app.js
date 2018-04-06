@@ -27,7 +27,7 @@ store.dispatch(addExpense({description: 'Water Bill', amount: 5000}));
 store.dispatch(addExpense({description: 'Gas Bill', amount: 2500}));
 
 // Filter expenses to bill only
-store.dispatch(setTextFilter('water'));
+//store.dispatch(setTextFilter('water'));
 
 const bills = store.getState();
 
