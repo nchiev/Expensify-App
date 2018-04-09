@@ -1,11 +1,18 @@
 import React from 'react';
+import moment from 'moment';
+import  { SingleDatePicker } from 'react-dates';
+
+//CSS
+import 'react-dates/lib/css/_datepicker.css';
 
 export default class ExpenseForm extends React.Component {
     //Default state of form
-    state = {
+    state = {        
+        isCalendarFocused: false,
         description: '',
         note: '',
-        amount: 0
+        amount: '',
+        createdAt: moment()
     };
 
     onDescriptionChange = (e) => {
@@ -32,12 +39,24 @@ export default class ExpenseForm extends React.Component {
         const amount = e.target.value;
         if(amount.match(/^\d*(\.\d{0,2})?$/))
         {
-            this.setState(() => {
-                return {
-                    amount: amount
-                };
-            });        
+            this.setState(() => ({amount}));        
         }
+    };
+
+    onDateChange = (createdAt) => {
+        this.setState(() => {
+            return {
+                createdAt: createdAt
+            }
+        });
+    };
+
+    onDateFocusChange = (e) => {
+        this.setState(() => {
+            return {
+                isCalendarFocused: e.focused
+            }
+        });
     };
 
     render() {
@@ -52,10 +71,16 @@ export default class ExpenseForm extends React.Component {
                      onChange={this.onDescriptionChange}
                     />
                     <input 
-                     type="number"
+                     type="text"
                      placeholder="Amount"
                      value={this.state.amount}
                      onChange={this.onAmountChange}
+                    />
+                    <SingleDatePicker
+                     date={this.state.createdAt}
+                     onDateChange={this.onDateChange} // PropTypes.func.isRequired
+                     focused={this.state.isCalendarFocused} // PropTypes.bool
+                     onFocusChange={this.onDateFocusChange} // PropTypes.func.isRequired
                     />
                     <textarea
                      placeholder="Add your notes (Optional)"
