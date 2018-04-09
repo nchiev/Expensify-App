@@ -15,7 +15,6 @@ const ExpenseList = (props) => (
 );
 
 const mapStateToProps = (state) => {
-    console.log("ConnectedExpenseList", state);
     return {
         expenses: selectExpenses(state.expenses, state.filters)
     };
