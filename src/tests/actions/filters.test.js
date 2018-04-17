@@ -51,8 +51,7 @@ test('should generate set sort by amount object', () => {
     const action = sortByAmount();
 
     expect(action).toEqual({
-        type: 'SORT_BY',
-        sortBy: 'amount'
+        type: 'SET_SORT_BY_AMOUNT'
     });
 });
 // sortByAmount TEST END
@@ -62,8 +61,7 @@ test('should generate set sort by date object', () => {
     const action = sortByDate();
 
     expect(action).toEqual({
-        type: 'SORT_BY',
-        sortBy: 'date'
+        type: 'SET_SORT_BY_DATE'
     });
 });
 // sortByDate TEST END
