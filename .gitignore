@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# compiled app js and css
+public/bundle.js
+public/bundle.js.map
+public/styles.css
+public/styles.css.map
