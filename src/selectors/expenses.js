@@ -1,5 +1,4 @@
 import moment from 'moment'
-import { start } from 'repl';
 
 export default (expenses, { text = '', sortBy, startDate, endDate } = {}) => {
     // Filtering section
