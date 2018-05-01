@@ -3,6 +3,7 @@
 exports[`should render home component 1`] = `
 <div>
   <Connect(ExpenseListFilter) />
+  <Component />
   <Connect(ExpenseList) />
 </div>
 `;
