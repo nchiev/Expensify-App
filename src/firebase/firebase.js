@@ -13,26 +13,27 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-database.ref('expenses').push({
-    description: 'Water Bill',
-    note: '',
-    amount: 4000,
-    createdAt: '5/2/2018'
-});
+export { firebase, database as default };
+// database.ref('expenses').push({
+//     description: 'Water Bill',
+//     note: '',
+//     amount: 4000,
+//     createdAt: '5/2/2018'
+// });
 
-database.ref('expenses').push({
-    description: 'Cellphone Bill',
-    note: '',
-    amount: 2000,
-    createdAt: '5/1/2018'
-});
+// database.ref('expenses').push({
+//     description: 'Cellphone Bill',
+//     note: '',
+//     amount: 2000,
+//     createdAt: '5/1/2018'
+// });
 
-database.ref('expenses').push({
-    description: 'Food',
-    note: 'Pizza',
-    amount: 2400,
-    createdAt: '4/1/2018'
-});
+// database.ref('expenses').push({
+//     description: 'Food',
+//     note: 'Pizza',
+//     amount: 2400,
+//     createdAt: '4/1/2018'
+// });
 
 // database.ref().on('value', 
 //     (dataSnapshot) => {
