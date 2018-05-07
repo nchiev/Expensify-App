@@ -28,11 +28,31 @@ export const startAddExpense = (expenseData = {}) => {
     };
 };
 
+export const startEditExpense = ( id, updates ) => {
+    return (dispatch) => {
+        database.ref('expenses').child(id).update(updates).then((ref) => {
+            dispatch(
+                editExpense(id, updates)
+            );
+        });
+    };
+};
+
 export const editExpense = ( id, updates ) => ({
     type: 'EDIT_EXPENSE',
     id,
     updates
 });
+
+export const startDeleteExpense = ( {id} = {} ) => {
+    return (dispatch) => {
+        database.ref('expenses').child(id).remove().then((ref) => {
+            dispatch(
+                removeExpense(id)
+            );
+        });
+    };
+};
 
 export const removeExpense = ({ id } = {}) => ({
     type: 'REMOVE_EXPENSE',

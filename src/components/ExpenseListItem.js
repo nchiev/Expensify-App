@@ -8,11 +8,11 @@ import { removeExpense } from '../actions/expenses';
 const ExpenseListItem = ({ id, description, amount, createdAt, dispatch }) => {
     return (
         <div>
-        <Link to={`/edit/${id}`}>
-            <h3>{description}</h3>
-        </Link>
-        <p>{numeral(amount).format('$0,0.00')} - {moment(createdAt).format('MMMM Do, YYYY')}</p>
-    </div>
+            <Link to={`/edit/${id}`}>
+                <h3>{description}</h3>
+            </Link>
+            <p>{numeral(amount).format('$0,0.00')} - {moment(createdAt).format('MMMM Do, YYYY')}</p>
+        </div>
     );
 };
 
