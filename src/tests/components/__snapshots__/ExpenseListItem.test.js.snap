@@ -13,7 +13,7 @@ exports[`should render expsense list item with fixure data 1`] = `
   <p>
     $195.00
      - 
-    April 29th, 2018
+    December 18th, 2017
   </p>
 </div>
 `;
