@@ -48,7 +48,7 @@ export const startDeleteExpense = ( {id} = {} ) => {
     return (dispatch) => {
         database.ref('expenses').child(id).remove().then((ref) => {
             dispatch(
-                removeExpense(id)
+                removeExpense({ id })
             );
         });
     };
@@ -57,4 +57,31 @@ export const startDeleteExpense = ( {id} = {} ) => {
 export const removeExpense = ({ id } = {}) => ({
     type: 'REMOVE_EXPENSE',
     id
+});
+
+export const startSetExpense = () => {
+    return (dispatch) => {
+        return database.ref('expenses')
+            .once('value')
+            .then((snapshot) => {
+                const expenses = [];
+
+                snapshot.forEach(snap => {
+                    expenses.push({
+                        id: snap.key,
+                        ...snap.val()
+                    });
+                });
+
+                dispatch(setExpenses(expenses));
+            })
+            .catch((e) => {
+                console.log('Error fetching data', e);
+        });
+    };
+};
+
+export const setExpenses = (expenses) => ({
+    type: 'SET_EXPENSES',
+    expenses
 });
