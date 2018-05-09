@@ -11,16 +11,18 @@ import ExpenseAdd from '../components/ExpenseAdd';
 import ExpenseEdit from '../components/ExpenseEdit';
 import ExpenseHelp from '../components/ExpenseHelp';
 import NotFound from '../components/NotFound';
+import Login from '../components/Login';
 
 const ExpsenifyRouter = () => (
     <Router>
         <div>
             <Header />
             <Switch>
-                <Route exact path="/" component={ExpenseHome} />
+                <Route exact path="/" component={Login} />
                 <Route path="/add" component={ExpenseAdd} />
                 <Route path="/edit/:id" component={ExpenseEdit}/>
                 <Route path="/help" component={ExpenseHelp} />
+                <Route path="/dashboard" component={ExpenseHome} />
                 <Route component={NotFound} />
             </Switch>
         </div>
