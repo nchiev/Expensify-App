@@ -15,7 +15,7 @@ import { startSetExpense } from './actions/expenses';
 // import { setTextFilter } from './actions/filters';
 // import getVisibleExpenses from './selectors/expenses'
 
-import './firebase/firebase';
+import { firebase } from './firebase/firebase';
 
 const store = configureStore();
 
@@ -32,3 +32,11 @@ store.dispatch(startSetExpense()).then(() => {
     ReactDOM.render(jsx, document.getElementById('app'));
 });
 
+firebase.auth().onAuthStateChanged((user) => {
+    if(user) {
+        console.log('Logged in');
+    }
+    else {
+        console.log('Logged out');
+    }
+});
