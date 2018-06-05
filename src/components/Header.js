@@ -9,7 +9,6 @@ export const Header = ({ startLogout }) => (
         <NavLink exact activeClassName="is-active" to="/">Home</NavLink>
         <NavLink activeClassName="is-active" to="/add">Add</NavLink>
         <NavLink activeClassName="is-active" to="/help">Help</NavLink>
-
         <button onClick={ startLogout }>Logout</button>
     </div>
 );
