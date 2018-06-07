@@ -12,7 +12,7 @@ import './styles/styles.scss';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpense } from './actions/expenses';
- import { login, logout } from './actions/auth';
+import { login, logout } from './actions/auth';
 // import getVisibleExpenses from './selectors/expenses'
 
 import { firebase } from './firebase/firebase';

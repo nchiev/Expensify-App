@@ -6,7 +6,7 @@ import { Route, Redirect } from 'react-router-dom';
 // Imports app code
 import Header from '../components/Header';
 
-export const PrivateRoute = ({ 
+export const PublicRoute = ({ 
     isAuthenticated, 
     component: Component,
     ...rest
@@ -15,12 +15,9 @@ export const PrivateRoute = ({
     return (
         <Route {...rest} component={(props) => (
             isAuthenticated ? (
-                <div>
-                    <Header />
-                    <Component {...props}/>
-                </div>
+                <Redirect to="/dashboard" />
             ) : (
-                <Redirect to="/" />
+                <Component {...props}/>
             )
         )} />
     );
@@ -32,4 +29,4 @@ const mapStateToProps = (state) => {
     });
 };
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default connect(mapStateToProps)(PublicRoute);
