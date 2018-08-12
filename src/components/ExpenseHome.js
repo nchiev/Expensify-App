@@ -6,8 +6,8 @@ import ExpenseListFilter from './ExpenseListFilter';
 
 const ExpenseHome = () => (
     <div>
-        <ExpenseListFilter />
         <ExpenseSummary />
+        <ExpenseListFilter />
         <ExpenseList />
     </div>
 );
